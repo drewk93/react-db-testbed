@@ -24,7 +24,7 @@ const App = () => {
       setResult('Login Successful!'); // Set the login result
     })
     .catch(error => {
-      console.error('Error:', error)
+      console.error('Error:', error.response.data.message)
       setResult('Login Failed!'); // Set the login result
     });
   }
@@ -38,7 +38,8 @@ const App = () => {
       setResult('Registration Successful!')
     })
     .catch(error => {
-      setResult('Registration Failed!')
+      console.error('Error:', error.response.data.message);
+      setResult('Registration Failed!');
     })
   }
 
