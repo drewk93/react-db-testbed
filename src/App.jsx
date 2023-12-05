@@ -15,7 +15,6 @@ const App = () => {
   const domain = "http://localhost:3000"
 
   function loginFunc() {
-    console.log(formData.username, formData.password);
     axios.post(`${domain}/login`, {
       username: formData.username,
       password: formData.password,
@@ -29,9 +28,8 @@ const App = () => {
       setResult('Login Failed!'); // Set the login result
     });
   }
-
   function registerFunc() {
-    console.log(formData.username, formData.password);
+   
     axios.post(`${domain}/register`, {
       username: formData.username,
       password: formData.password
