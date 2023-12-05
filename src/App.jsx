@@ -8,16 +8,16 @@ const App = () => {
   const [result, setResult] = useState('Welcome!'); // State to hold login result
 
   function handleInputChange(event) {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
+    const { name, value } = event.target; // input values equal the event.target
+    setFormData({ ...formData, [name]: value }); // setFormData to equal the name, and value imported from the input
   }
 
-  const domain = "http://localhost:3000"
+  const domain = "http://localhost:3000" //domain/url set to localhost:3000
 
   function loginFunc() {
     axios.post(`${domain}/login`, {
-      username: formData.username,
-      password: formData.password,
+      username: formData.username, // import username from input value;
+      password: formData.password, // imported password from input value;
     })
     .then(response => {
       console.log(response.data)
@@ -28,23 +28,25 @@ const App = () => {
       setResult('Login Failed!'); // Set the login result
     });
   }
+
   function registerFunc() {
    
     axios.post(`${domain}/register`, {
-      username: formData.username,
-      password: formData.password
+      username: formData.username, // import username from input value;
+      password: formData.password // imported password from input value;
     })
     .then(response => {
-      setResult('Registration Successful!')
+      console.log(response.data)
+      setResult('Registration Successful!'); // Set the registration result
     })
     .catch(error => {
       console.error('Error:', error.response.data.message);
-      setResult('Registration Failed!');
+      setResult('Registration Failed!'); // Set the registration result
     })
   }
 
   return (
-    <div id="mainContainer">
+    <div id="mainContainer"> 
       <div id="loginContainer">
         <div id="inputContainer">
           <input
